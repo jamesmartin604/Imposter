@@ -1,21 +1,26 @@
-import { CategorySelector } from '@/components/CategorySelector';
+import { CategoryPreviewCard } from '@/components/CategoryPreviewCard';
 import { PlayerInput } from '@/components/PlayerInput';
 import { PlayerList } from '@/components/PlayerList';
 import { PrimaryButton } from '@/components/PrimaryButton';
 import { Screen } from '@/components/Screen';
-import { Category, ChooseCategory, Title } from '@/components/Typography';
+import { Title } from '@/components/Typography';
 import { useGame } from '@/context/GameContext';
-import { categories, featuredCategoryIds } from '@/data/categories';
+import { categories } from '@/data/categories';
 import { useRouter } from 'expo-router';
-import { Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, TouchableWithoutFeedback } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, TouchableWithoutFeedback } from 'react-native';
 
 
 export default function HomeScreen() {
   const router = useRouter();
 
   const { players, setPlayers } = useGame();
-  const featuredCategories = categories.filter(cat=>featuredCategoryIds.includes(cat.id));
-  const { selectedCategories, setSelectedCategories } = useGame();
+ 
+  const { selectedCategories } = useGame();
+
+  const selectedCategoryObjects = categories.filter(cat=>
+    selectedCategories.includes(cat.id)
+  );
+   const featuredCategories = selectedCategoryObjects.slice(0,3);
 
   const canStart =
     players.length >= 3 &&
@@ -51,33 +56,10 @@ export default function HomeScreen() {
                     setPlayers(prev => prev.filter(p => p.id !== id))
                   }
                 />
-
-                <Category>Categories</Category>
-                <CategorySelector
+                <CategoryPreviewCard
                   categories={featuredCategories}
-                  selected={selectedCategories}
-                  onToggle={id =>
-                    setSelectedCategories(prev =>
-                      prev.includes(id)
-                        ? prev.filter(c => c !== id)
-                        : [...prev, id]
-                    )
-                  }
+                  onPress={() => router.push('/categories')}
                 />
-
-                  <Pressable
-                    onPress={() =>
-                      router.push({
-                        pathname: '/categories',
-                        params: {
-                          selected: JSON.stringify(selectedCategories),
-                        },
-                      })
-                    }
-                    style={{ marginTop: 8 }}
-                  >
-                    <ChooseCategory>Choose categories →</ChooseCategory>
-                  </Pressable>
 
                 <PrimaryButton
                   title="Start Game"

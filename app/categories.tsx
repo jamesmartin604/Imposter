@@ -3,7 +3,7 @@ import { Screen } from '@/components/Screen';
 import { useGame } from '@/context/GameContext';
 import { categories } from '@/data/categories';
 import { useRouter } from 'expo-router';
-import { Pressable, Text } from 'react-native';
+import { Pressable, ScrollView, Text } from 'react-native';
 
 export default function CategoriesScreen() {
   const router = useRouter();
@@ -12,14 +12,35 @@ export default function CategoriesScreen() {
   return (
     <Screen>
       {/* Title */}
+      <ScrollView
+        contentContainerStyle={{
+          paddingBottom: 40,
+        }}
+        showsVerticalScrollIndicator={false}
+        >
       <Text
         style={{
           fontSize: 24,
           fontWeight: '700',
-          marginBottom: 16,
+          marginBottom: 4,
+          fontFamily: 'Fontzilla',
+          marginTop: 12,
+          textAlign: 'center',
+          
         }}
       >
-        Choose Categories
+        SELECT CATEGORIES
+      </Text>
+      <Text
+        style={{
+          marginTop: 4,
+          fontSize: 12,
+          marginBottom: 16,
+          color: '#777',
+          textAlign: 'center',
+        }}
+      >
+        Choose one or more categories for the game
       </Text>
 
       {/* Category grid */}
@@ -44,6 +65,8 @@ export default function CategoriesScreen() {
           borderRadius: 12,
           backgroundColor: '#111',
           alignItems: 'center',
+          marginRight: 24,
+          marginLeft: 24,
         }}
       >
         <Text
@@ -56,6 +79,7 @@ export default function CategoriesScreen() {
           Done
         </Text>
       </Pressable>
+      </ScrollView>
     </Screen>
   );
 }

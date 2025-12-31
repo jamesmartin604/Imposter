@@ -1,5 +1,4 @@
 import { Category } from '@/types/game';
-import { Ionicons } from '@expo/vector-icons';
 import { Pressable, Text, View } from 'react-native';
 
 type Props = {
@@ -8,28 +7,28 @@ type Props = {
   onToggle: (id: string) => void;
 };
 
-const CATEGORY_ICONS: Record<string, keyof typeof Ionicons.glyphMap> = {
-    animals: 'paw',
-    brands_and_logos: 'logo-apple',
-    colors_and_shapes: 'color-palette',
-    countries_and_cities: 'globe',
-    emotions_and_feelings: 'heart',
-    everyday_objects: 'home',
-    famous_people: 'star',
-    food_and_drink: 'restaurant',
-    hobbies_and_activities: 'golf',
-    internet_culture: 'laptop',
-    kitchen_and_cooking: 'restaurant',
-    movies_and_tv: 'film',
-    music_and_bands: 'headset',
-    occupations: 'briefcase',
-    school_and_education: 'school',
-    science_and_tech: 'flask',
-    sports: 'football',
-    superheros: 'globe',
-    transportation: 'car',
-    video_games: 'game-controller',
-    weather_and_nature: 'cloud',   
+const CATEGORY_ICONS: Record<string, string> = {
+    animals: '🐾',
+    brands_and_logos: '🍎',
+    colors_and_shapes: '🎨',
+    countries_and_cities: '🌍',
+    emotions_and_feelings: '❤️',
+    everyday_objects: '🏠',
+    famous_people: '⭐️',
+    food_and_drink: '🍔',
+    hobbies_and_activities: '🏌️‍♂️',
+    internet_culture: '💻',
+    kitchen_and_cooking: '🍳',
+    movies_and_tv: '🎬',
+    music_and_bands: '🎧',
+    occupations: '💼',
+    school_and_education: '🎓',
+    science_and_tech: '🧪',
+    sports: '⚽️',
+    superheros: '🦸‍♂️',
+    transportation: '🚗',
+    video_games: '🎮',
+    weather_and_nature: '☁️',   
 }
 
 export function CategorySelector({
@@ -42,8 +41,8 @@ export function CategorySelector({
       style={{
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        marginBottom: 16,
+        justifyContent: 'center',
+        marginBottom: 20,
       }}
     >
       {categories.map(category => {
@@ -56,11 +55,12 @@ export function CategorySelector({
             accessibilityRole="button"
             accessibilityLabel={`Toggle ${category.name}`}
             style={({ pressed }) => ({
-              width: '32%', // ✅ 3 per row
-              marginBottom: 9,
-              paddingVertical: 10,
+              width: '85%',
+              alignSelf: 'center', 
+              marginBottom: 8,
+              paddingVertical: 9,
               paddingHorizontal: 8,
-              borderRadius: 10,
+              borderRadius: 16,
               backgroundColor: isSelected ? '#595959' : '#FFF',
               borderWidth: 1,
               borderColor: isSelected ? '#383838' : '#DDD',
@@ -76,24 +76,28 @@ export function CategorySelector({
             })}
           >
             {/* Category name */}
-
-            <Ionicons
-              name={CATEGORY_ICONS[category.id]??'grid'}
-              size={16}
-              color={isSelected ? '#FFF' : '#555'}
-              style={{ marginBottom: 4 }}
-            />
+          <View style={{flexDirection: 'row', alignItems:'center'}}>
+            <Text
+              style={{
+                fontSize:18,
+                marginRight:10,
+                lineHeight:20,
+              }}
+              >
+                {CATEGORY_ICONS[category.id]??'🧩'}
+              </Text>
 
             <Text
-              numberOfLines={2}
+              numberOfLines={1}
               style={{
-                fontSize: 13,
+                fontSize: 14,
                 fontWeight: '600',
                 color: isSelected ? '#FFF' : '#111',
               }}
             >
               {category.name}
             </Text>
+            </View>
           </Pressable>
         );
       })}
