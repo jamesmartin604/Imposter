@@ -11,74 +11,58 @@ export default function CategoriesScreen() {
 
   return (
     <Screen>
-      {/* Title */}
       <ScrollView
-        contentContainerStyle={{
-          paddingBottom: 40,
-        }}
-        showsVerticalScrollIndicator={false}
-        >
-      <Text
-        style={{
-          fontSize: 24,
-          fontWeight: '700',
-          marginBottom: 4,
-          fontFamily: 'Fontzilla',
-          marginTop: 12,
-          textAlign: 'center',
-          
-        }}
+        contentContainerStyle={{ paddingBottom: 24 }}
+        style={{ backgroundColor: 'transparent' }}
       >
-        SELECT CATEGORIES
-      </Text>
-      <Text
-        style={{
-          marginTop: 4,
-          fontSize: 12,
-          marginBottom: 16,
-          color: '#777',
-          textAlign: 'center',
-        }}
-      >
-        Choose one or more categories for the game
-      </Text>
-
-      {/* Category grid */}
-      <CategorySelector
-        categories={categories}
-        selected={selectedCategories}
-        onToggle={id =>
-          setSelectedCategories(prev =>
-            prev.includes(id)
-              ? prev.filter(c => c !== id)
-              : [...prev, id]
-          )
-        }
-      />
-
-      {/* DONE BUTTON */}
-      <Pressable
-        onPress={() => router.back()}
-        style={{
-          marginTop: 16,
-          paddingVertical: 14,
-          borderRadius: 12,
-          backgroundColor: '#111',
-          alignItems: 'center',
-          marginRight: 24,
-          marginLeft: 24,
-        }}
-      >
+        {/* Title */}
         <Text
           style={{
-            color: '#FFF',
-            fontSize: 16,
-            fontWeight: '600',
+            fontSize: 28,
+            fontWeight: '700',
+            marginBottom: 16,
+            textAlign: 'center',
+            fontFamily: 'Fontzilla',
+            color: '#FFFFFF',
           }}
         >
-          Done
+          Choose Categories
         </Text>
-      </Pressable>
+
+        {/* Category grid */}
+        <CategorySelector
+          categories={categories}
+          selected={selectedCategories}
+          onToggle={id =>
+            setSelectedCategories(prev =>
+              prev.includes(id)
+                ? prev.filter(c => c !== id)
+                : [...prev, id]
+            )
+          }
+        />
+
+        {/* DONE BUTTON */}
+        <Pressable
+          onPress={() => router.back()}
+          style={{
+            marginTop: 16,
+            paddingVertical: 14,
+            borderRadius: 12,
+            backgroundColor: '#19E5D4',
+            alignItems: 'center',
+          }}
+        >
+          <Text
+            style={{
+              color: '#FFF',
+              fontSize: 16,
+              fontWeight: '600',
+            }}
+          >
+            Done
+          </Text>
+        </Pressable>
       </ScrollView>
     </Screen>
   );

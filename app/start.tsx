@@ -1,6 +1,7 @@
-import { PrimaryButton } from '@/components/PrimaryButton';
+import { FirstToSpeakCard } from '@/components/FirstToSpeakCard';
 import { Screen } from '@/components/Screen';
-import { Body, Title } from '@/components/Typography';
+import { SecondaryButton } from '@/components/SecondaryButton';
+import { Start, Title } from '@/components/Typography';
 import { useRouter } from 'expo-router';
 
 export default function StartScreen() {
@@ -9,9 +10,10 @@ export default function StartScreen() {
   return (
     <Screen>
       <Title>Game Started!</Title>
-      <Body>Time to talk and catch the imposter.</Body>
+      <Start>Time to talk and catch the imposter.</Start>
+      <FirstToSpeakCard />
 
-      <PrimaryButton title="New Game" onPress={() => router.replace('/')} />
+      <SecondaryButton title="Start New Game" onPress={() => router.replace('/')} />
     </Screen>
   );
 }

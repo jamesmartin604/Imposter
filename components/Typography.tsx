@@ -8,7 +8,7 @@ export function Title({ children }: { children: string }) {
         fontFamily: 'Fontzilla',
         fontSize: 48,
         fontWeight: '700',
-        color: '#111',
+        color: '#ffffff',
         marginBottom: 16,
         textAlign: 'center',
       }}
@@ -68,3 +68,18 @@ export function ChooseCategory({ children }: { children: string }) {
   );
 }
 
+
+export function Start({ children }: { children: string }) {
+  return (
+    <Text
+      style={{
+        fontSize: 16,
+        textAlign: 'center',
+        color: '#7B899D',
+        marginBottom: 8,
+      }}
+    >
+      {children}
+    </Text>
+  );
+}

@@ -1,6 +1,6 @@
 import { Pressable, Text } from 'react-native';
 
-export function PrimaryButton({
+export function SecondaryButton({
   title,
   onPress,
   disabled,
@@ -14,18 +14,22 @@ export function PrimaryButton({
       onPress={onPress}
       disabled={disabled}
       style={{
-        backgroundColor: disabled ? '#252e3d' : '#19E5D4',
+        backgroundColor: disabled ? '#0b0f16' : '#0b0f16',
         paddingVertical: 14,
         borderRadius: 12,
+        borderColor: '#7B899D',
+        borderWidth: 1,
         alignItems: 'center',
-        marginTop: 16,
+        marginTop: 20,
+        marginRight: 40,
+        marginLeft: 40,
       }}
     >
       <Text
         style={{
-          color: '#0b0f16',
+          color: '#FFF',
           fontSize: 16,
-          fontWeight: '600',
+          fontWeight: '700',
         }}
       >
         {title}
