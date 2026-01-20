@@ -5,7 +5,7 @@ export function Screen({ children }: { children: React.ReactNode }) {
     <SafeAreaView
       style={{
         flex: 1,
-        backgroundColor: '#F9F9F9',
+        backgroundColor: '#0b0f16',
       }}
     >
       <View

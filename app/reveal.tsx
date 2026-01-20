@@ -48,14 +48,19 @@ export default function RevealScreen() {
             front={
               <View
                 style={{
-                  backgroundColor: '#EEE',
-                  padding: 32,
+                  backgroundColor: '#252e3d',
+                  padding: 80,
+                  borderColor: '#7B899D',
+                  borderWidth: 1,
                   borderRadius: 16,
                   alignItems: 'center',
                 }}
               >
-                <Text style={{ fontSize: 18, color: '#666' }}>
-                  Hold to reveal
+                <Text style={{ fontSize: 22, color: '#cccccc', fontWeight: '600' }}>
+                  Hold to Reveal
+                </Text>
+                <Text style={{ fontSize: 14, color: '#7B899D', marginTop: 4 }}>
+                  Only {currentPlayer.name} should see this
                 </Text>
               </View>
             }

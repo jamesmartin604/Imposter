@@ -20,11 +20,11 @@ export function PlayerList({ players, onRemove }: Props) {
         <View
           key={player.id}
           style={{
-            width: '48%', // ✅ two per row
+            width: '48%', // two per row
             flexDirection: 'row',
             alignItems: 'center',
-            backgroundColor: '#FFF',
-            borderRadius: 10,
+            backgroundColor: '#252e3d',
+            borderRadius: 24,
             paddingHorizontal: 12,
             paddingVertical: 10,
             marginBottom: 8,
@@ -43,8 +43,8 @@ export function PlayerList({ players, onRemove }: Props) {
             style={{
               flex: 1,
               fontSize: 14,
-              fontWeight: '500',
-              color: '#111',
+              fontWeight: 'bold',
+              color: '#ffffff',
               marginRight: 6,
             }}
           >
@@ -63,7 +63,7 @@ export function PlayerList({ players, onRemove }: Props) {
               borderRadius: 14,
               justifyContent: 'center',
               alignItems: 'center',
-              backgroundColor: pressed ? '#F2F2F2' : 'transparent',
+              
             })}
           >
             <Text

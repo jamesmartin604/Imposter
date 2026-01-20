@@ -31,7 +31,7 @@ export function PlayerInput({
         style={{
           fontSize: 16,
           fontWeight: '600',
-          color: '#444',
+          color: '#ffffffff',
           marginBottom: 6,
           fontFamily: 'Fontzilla',
         }}
@@ -39,7 +39,7 @@ export function PlayerInput({
      <Ionicons
         name="people-outline"
         size={16}
-        color="#444"
+        color="#19E5D4"
         style={{ marginBottom: 6 ,marginRight: 6}}
         
       />
@@ -56,19 +56,20 @@ export function PlayerInput({
         <TextInput
           value={name}
           onChangeText={setName}
-          placeholder="Player name"
-          placeholderTextColor="#999"
+          placeholder="Enter player name..."
+          placeholderTextColor="#7B899D"
           onSubmitEditing={handleAdd}
           editable={playerCount < maxPlayers}
           style={{
             flex: 1,
             height: 48,
             borderWidth: 1,
-            borderColor: '#DDD',
+            borderColor: '#7B899D',
             borderRadius: 12,
             paddingHorizontal: 12,
             fontSize: 16,
-            backgroundColor: '#FFF',
+            backgroundColor: '#252e3d',
+            color: '#ffffff',
           }}
         />
 
@@ -82,8 +83,8 @@ export function PlayerInput({
             borderRadius: 12,
             backgroundColor:
               !name.trim() || playerCount >= maxPlayers
-                ? '#CCC'
-                : '#111',
+                ? '#252e3d'
+                : '#7B899D', //#7B899D
             justifyContent: 'center',
             alignItems: 'center',
           }}
@@ -107,7 +108,7 @@ export function PlayerInput({
           style={{
             marginTop: 6,
             fontSize: 13,
-            color: '#888',
+            color: '#7B899D',
           }}
         >
           {remaining === 3

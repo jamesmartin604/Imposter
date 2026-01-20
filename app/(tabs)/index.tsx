@@ -29,13 +29,14 @@ export default function HomeScreen() {
 
   return (
     <KeyboardAvoidingView
-      style={{ flex:1}}
+      style={{ flex:1, backgroundColor: '#0b0f16'}}
       behavior={Platform.OS ==='ios'?'padding':undefined}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ScrollView
-          contentContainerStyle={{paddingBottom:24}}
+          contentContainerStyle={{paddingBottom:24, flexGrow: 1}}
           keyboardShouldPersistTaps="handled"
+          style={{ backgroundColor: '#0b0f16', flex: 1 }}
         >
               <Screen>
                 <Title>IMPOSTER</Title>

@@ -61,9 +61,9 @@ export function CategorySelector({
               paddingVertical: 9,
               paddingHorizontal: 8,
               borderRadius: 16,
-              backgroundColor: isSelected ? '#595959' : '#FFF',
+              backgroundColor: isSelected ? 'rgba(25, 229, 212, 0.18)' : '#2A2A2D',
               borderWidth: 1,
-              borderColor: isSelected ? '#383838' : '#DDD',
+              borderColor: isSelected ? '#19E5D4' : '#3A3A3D',
 
               // subtle shadow
               shadowColor: '#000',
@@ -92,7 +92,7 @@ export function CategorySelector({
               style={{
                 fontSize: 14,
                 fontWeight: '600',
-                color: isSelected ? '#FFF' : '#111',
+                color: isSelected ? '#19E5D4' : '#CFCFCF',
               }}
             >
               {category.name}

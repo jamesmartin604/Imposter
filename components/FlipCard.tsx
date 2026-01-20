@@ -54,7 +54,7 @@ export function FlipCard({ flipped, front, back }: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: 220, // ✅ reserves space so layout works
+    height: 220, // reserves space so layout works
     width: '100%',
   },
   card: {
