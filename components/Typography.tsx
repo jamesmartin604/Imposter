@@ -75,6 +75,7 @@ export function Start({ children }: { children: string }) {
       style={{
         fontSize: 16,
         textAlign: 'center',
+        opacity: 0.6,
         color: '#7B899D',
         marginBottom: 8,
       }}
