@@ -82,7 +82,12 @@ export default function RevealScreen() {
             if (index + 1 < players.length) {
               setIndex(i => i + 1);
             } else {
-              router.replace('/start');
+              router.replace({
+                pathname: '/start',
+                params: {
+                  players: JSON.stringify(players),
+                },
+              })
             }
           }}
         />
