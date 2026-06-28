@@ -41,7 +41,7 @@ export default function HomeScreen() {
           style={{ backgroundColor: '#0b0f16', flex: 1 }}
         >
               <Screen>
-                <Title>IMPOSTER</Title>
+                <Title>BLUFF</Title>
 
                 <PlayerInput
                   playerCount={players.length}
