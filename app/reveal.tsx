@@ -5,7 +5,7 @@ import { Screen } from '@/components/Screen';
 import { Title } from '@/components/Typography';
 import { categories } from '@/data/categories';
 import { Player } from '@/types/game';
-import { selectImposter, selectWord } from '@/utils/gameLogic';
+import { selectImposters, selectWord } from '@/utils/gameLogic';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
@@ -18,20 +18,21 @@ export default function RevealScreen() {
   const players: Player[] = JSON.parse(params.players as string);
   const selectedCategoryIds: string[] = JSON.parse(params.categories as string);
   const allowHints: boolean = JSON.parse(params.allowHints as string ?? 'true');
+  const imposterCount: number = JSON.parse(params.imposterCount as string ?? '1');
 
   const selectedCategories = categories.filter(cat =>
     selectedCategoryIds.includes(cat.id)
   );
 
-  const [imposter] = useState(() => selectImposter(players));
+  const [imposters] = useState(() => selectImposters(players, imposterCount));
+  const imposterIds = new Set(imposters.map(p => p.id));
   const [{ word, hint }] = useState(() => selectWord(selectedCategories));
-
 
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
 
   const currentPlayer = players[index];
-  const isImposter = currentPlayer.id === imposter.id;
+  const isImposter = imposterIds.has(currentPlayer.id);
 
   return (
     <Screen>

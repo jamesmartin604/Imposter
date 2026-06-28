@@ -12,6 +12,9 @@ type GameContextType = {
   allowHints: boolean;
   setAllowHints: React.Dispatch<React.SetStateAction<boolean>>;
 
+  imposterCount: number;
+  setImposterCount: React.Dispatch<React.SetStateAction<number>>;
+
   resetGame: () => void;
 };
 
@@ -26,6 +29,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   );
 
   const [allowHints, setAllowHints] = useState(true);
+  const [imposterCount, setImposterCount] = useState(1);
 
   const resetGame = () => {
     // game-specific reset only
@@ -41,6 +45,8 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
         setSelectedCategories,
         allowHints,
         setAllowHints,
+        imposterCount,
+        setImposterCount,
         resetGame,
       }}
     >

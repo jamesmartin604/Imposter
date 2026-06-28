@@ -7,13 +7,16 @@ import { Title } from '@/components/Typography';
 import { useGame } from '@/context/GameContext';
 import { categories } from '@/data/categories';
 import { useRouter } from 'expo-router';
-import { Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TouchableWithoutFeedback } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { maxImposters } from '@/utils/gameLogic';
 
 
 export default function HomeScreen() {
   const router = useRouter();
 
-  const { players, setPlayers, selectedCategories, allowHints, setAllowHints } = useGame();
+  const { players, setPlayers, selectedCategories, allowHints, setAllowHints, imposterCount, setImposterCount } = useGame();
+  const maxCount = maxImposters(players.length);
+  const effectiveCount = Math.min(imposterCount, maxCount);
 
   const selectedCategoryObjects = categories.filter(cat=>
     selectedCategories.includes(cat.id)
@@ -83,6 +86,58 @@ export default function HomeScreen() {
                   </Text>
                 </Pressable>
 
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    backgroundColor: '#252e3d',
+                    borderColor: '#7B899D',
+                    borderWidth: 1,
+                    borderRadius: 12,
+                    paddingVertical: 10,
+                    paddingHorizontal: 16,
+                    marginTop: 16,
+                  }}
+                >
+                  <Text style={{ color: '#cccccc', fontSize: 16, fontWeight: '600' }}>
+                    Imposters
+                  </Text>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+                    <Pressable
+                      onPress={() => setImposterCount(c => Math.max(1, c - 1))}
+                      disabled={effectiveCount <= 1}
+                      style={{
+                        width: 32,
+                        height: 32,
+                        borderRadius: 8,
+                        backgroundColor: effectiveCount <= 1 ? '#1a2030' : '#19E5D4',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <Text style={{ color: effectiveCount <= 1 ? '#7B899D' : '#0b0f16', fontSize: 20, fontWeight: '700', lineHeight: 24 }}>−</Text>
+                    </Pressable>
+                    <Text style={{ color: '#fff', fontSize: 18, fontWeight: '700', minWidth: 16, textAlign: 'center' }}>
+                      {effectiveCount}
+                    </Text>
+                    <Pressable
+                      onPress={() => setImposterCount(c => Math.min(maxCount, c + 1))}
+                      disabled={effectiveCount >= maxCount}
+                      style={{
+                        width: 32,
+                        height: 32,
+                        borderRadius: 8,
+                        backgroundColor: effectiveCount >= maxCount ? '#1a2030' : '#19E5D4',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <Text style={{ color: effectiveCount >= maxCount ? '#7B899D' : '#0b0f16', fontSize: 20, fontWeight: '700', lineHeight: 24 }}>+</Text>
+                    </Pressable>
+                  </View>
+                </View>
+
                 <PrimaryButton
                   title="Start Game"
                   disabled={!canStart}
@@ -93,6 +148,7 @@ export default function HomeScreen() {
                         players: JSON.stringify(players),
                         categories: JSON.stringify(selectedCategories),
                         allowHints: JSON.stringify(allowHints),
+                        imposterCount: JSON.stringify(effectiveCount),
                       },
                     })
                   }
