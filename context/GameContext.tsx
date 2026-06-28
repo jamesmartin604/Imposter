@@ -9,6 +9,9 @@ type GameContextType = {
   selectedCategories: string[];
   setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
 
+  allowHints: boolean;
+  setAllowHints: React.Dispatch<React.SetStateAction<boolean>>;
+
   resetGame: () => void;
 };
 
@@ -22,6 +25,8 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     categories.map(c => c.id)
   );
 
+  const [allowHints, setAllowHints] = useState(true);
+
   const resetGame = () => {
     // game-specific reset only
     // players + categories persist
@@ -34,6 +39,8 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
         setPlayers,
         selectedCategories,
         setSelectedCategories,
+        allowHints,
+        setAllowHints,
         resetGame,
       }}
     >

@@ -7,15 +7,13 @@ import { Title } from '@/components/Typography';
 import { useGame } from '@/context/GameContext';
 import { categories } from '@/data/categories';
 import { useRouter } from 'expo-router';
-import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, TouchableWithoutFeedback } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TouchableWithoutFeedback } from 'react-native';
 
 
 export default function HomeScreen() {
   const router = useRouter();
 
-  const { players, setPlayers } = useGame();
- 
-  const { selectedCategories } = useGame();
+  const { players, setPlayers, selectedCategories, allowHints, setAllowHints } = useGame();
 
   const selectedCategoryObjects = categories.filter(cat=>
     selectedCategories.includes(cat.id)
@@ -62,6 +60,29 @@ export default function HomeScreen() {
                   onPress={() => router.push('/categories')}
                 />
 
+                <Pressable
+                  onPress={() => setAllowHints(h => !h)}
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    backgroundColor: '#252e3d',
+                    borderColor: allowHints ? '#19E5D4' : '#7B899D',
+                    borderWidth: 1,
+                    borderRadius: 12,
+                    paddingVertical: 14,
+                    paddingHorizontal: 16,
+                    marginTop: 16,
+                  }}
+                >
+                  <Text style={{ color: '#cccccc', fontSize: 16, fontWeight: '600' }}>
+                    Allow Hints
+                  </Text>
+                  <Text style={{ color: allowHints ? '#19E5D4' : '#7B899D', fontSize: 14 }}>
+                    {allowHints ? 'On' : 'Off'}
+                  </Text>
+                </Pressable>
+
                 <PrimaryButton
                   title="Start Game"
                   disabled={!canStart}
@@ -71,6 +92,7 @@ export default function HomeScreen() {
                       params: {
                         players: JSON.stringify(players),
                         categories: JSON.stringify(selectedCategories),
+                        allowHints: JSON.stringify(allowHints),
                       },
                     })
                   }

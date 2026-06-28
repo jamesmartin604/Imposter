@@ -16,9 +16,8 @@ export default function RevealScreen() {
   const params = useLocalSearchParams();
 
   const players: Player[] = JSON.parse(params.players as string);
-  const selectedCategoryIds: string[] = JSON.parse(
-    params.categories as string
-  );
+  const selectedCategoryIds: string[] = JSON.parse(params.categories as string);
+  const allowHints: boolean = JSON.parse(params.allowHints as string ?? 'true');
 
   const selectedCategories = categories.filter(cat =>
     selectedCategoryIds.includes(cat.id)
@@ -69,6 +68,7 @@ export default function RevealScreen() {
                 isImposter={isImposter}
                 word={word}
                 hint={hint}
+                showHint={allowHints}
               />
             }
             />

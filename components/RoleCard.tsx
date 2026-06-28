@@ -1,61 +1,47 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+
+const cardStyle = {
+  padding: 80,
+  borderRadius: 16,
+  alignItems: 'center' as const,
+  backgroundColor: '#252e3d',
+  borderColor: '#7B899D',
+  borderWidth: 1,
+  shadowColor: '#000',
+  shadowOpacity: 0.1,
+  shadowRadius: 10,
+  elevation: 4,
+};
 
 export function RoleCard({
   isImposter,
   word,
   hint,
+  showHint = true,
 }: {
   isImposter: boolean;
   word: string;
   hint: string;
+  showHint?: boolean;
 }) {
   return (
-    <>
+    <View style={cardStyle}>
       {isImposter ? (
-        <LinearGradient
-          colors={['hsl(0, 70%, 45%)', 'hsl(330, 70%, 40%)']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={{
-            padding: 80,
-            borderRadius: 16,
-            alignItems: 'center',
-            shadowColor: '#000',
-            shadowOpacity: 0.1,
-            shadowRadius: 10,
-            elevation: 4,
-          }}
-        >
-          <Text style={{
-            fontSize: 22, fontWeight: '700', color: '#FFF', fontFamily: 'Fontzilla'
-          }}>
+        <>
+          <Text style={{ fontSize: 22, fontWeight: '700', color: '#e05555', fontFamily: 'Fontzilla' }}>
             IMPOSTER
           </Text>
-          <Text style={{ marginTop: 8, fontSize: 16, color: '#fff' }}>
-            Hint: {hint}
-          </Text>
-        </LinearGradient>
+          {showHint && (
+            <Text style={{ marginTop: 8, fontSize: 16, color: '#e05555' }}>
+              Hint: {hint}
+            </Text>
+          )}
+        </>
       ) : (
-        <LinearGradient
-          colors={['hsl(175, 80%, 40%)', 'hsl(200, 80%, 45%)']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={{
-            padding: 80,
-            borderRadius: 16,
-            alignItems: 'center',
-            shadowColor: '#000',
-            shadowOpacity: 0.1,
-            shadowRadius: 10,
-            elevation: 4,
-          }}
-        >
-          <Text style={{ fontSize: 24, fontWeight: '700', color: '#fff' }}>
-            {word}
-          </Text>
-        </LinearGradient>
+        <Text style={{ fontSize: 24, fontWeight: '700', color: '#4da6e8' }}>
+          {word}
+        </Text>
       )}
-    </>
+    </View>
   );
 }
