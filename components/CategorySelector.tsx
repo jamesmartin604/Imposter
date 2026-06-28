@@ -1,3 +1,4 @@
+import * as Haptics from 'expo-haptics';
 import { Category } from '@/types/game';
 import { Pressable, Text, View } from 'react-native';
 
@@ -51,7 +52,10 @@ export function CategorySelector({
         return (
           <Pressable
             key={category.id}
-            onPress={() => onToggle(category.id)}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              onToggle(category.id);
+            }}
             accessibilityRole="button"
             accessibilityLabel={`Toggle ${category.name}`}
             style={({ pressed }) => ({

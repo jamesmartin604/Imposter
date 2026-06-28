@@ -1,14 +1,14 @@
 import { FlipCard } from '@/components/FlipCard';
-import { PrimaryButton } from '@/components/PrimaryButton';
 import { RoleCard } from '@/components/RoleCard';
 import { Screen } from '@/components/Screen';
 import { Title } from '@/components/Typography';
 import { categories } from '@/data/categories';
 import { Player } from '@/types/game';
 import { selectImposters, selectWord } from '@/utils/gameLogic';
+import * as Haptics from 'expo-haptics';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useState } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { useRef, useState } from 'react';
+import { Animated, Pressable, Text, View } from 'react-native';
 
 
 export default function RevealScreen() {
@@ -30,6 +30,38 @@ export default function RevealScreen() {
 
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
+  const buttonScale = useRef(new Animated.Value(1)).current;
+
+  function handleNextPlayer() {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    setRevealed(false);
+    if (index + 1 < players.length) {
+      setIndex(i => i + 1);
+    } else {
+      router.replace({
+        pathname: '/start',
+        params: { players: JSON.stringify(players) },
+      });
+    }
+  }
+
+  function onPressIn() {
+    Animated.spring(buttonScale, {
+      toValue: 0.95,
+      useNativeDriver: true,
+      speed: 50,
+      bounciness: 4,
+    }).start();
+  }
+
+  function onPressOut() {
+    Animated.spring(buttonScale, {
+      toValue: 1,
+      useNativeDriver: true,
+      speed: 30,
+      bounciness: 6,
+    }).start();
+  }
 
   const currentPlayer = players[index];
   const isImposter = imposterIds.has(currentPlayer.id);
@@ -39,7 +71,10 @@ export default function RevealScreen() {
         <Title>{currentPlayer.name}</Title>
 
         <Pressable
-          onPressIn={() => setRevealed(true)}
+          onPressIn={() => {
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+            setRevealed(true);
+          }}
           onPressOut={() => setRevealed(false)}
           style={{ marginBottom: 24 }}
         >
@@ -76,22 +111,23 @@ export default function RevealScreen() {
           </Pressable>
 
 
-        <PrimaryButton
-          title="Next Player"
-          onPress={() => {
-            setRevealed(false);
-            if (index + 1 < players.length) {
-              setIndex(i => i + 1);
-            } else {
-              router.replace({
-                pathname: '/start',
-                params: {
-                  players: JSON.stringify(players),
-                },
-              })
-            }
-          }}
-        />
+        <Animated.View style={{ transform: [{ scale: buttonScale }], marginTop: 16 }}>
+          <Pressable
+            onPress={handleNextPlayer}
+            onPressIn={onPressIn}
+            onPressOut={onPressOut}
+            style={{
+              backgroundColor: '#19E5D4',
+              paddingVertical: 14,
+              borderRadius: 12,
+              alignItems: 'center',
+            }}
+          >
+            <Text style={{ color: '#0b0f16', fontSize: 16, fontWeight: '600' }}>
+              Next Player
+            </Text>
+          </Pressable>
+        </Animated.View>
     </Screen>
   );
 }

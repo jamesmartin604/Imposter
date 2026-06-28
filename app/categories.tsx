@@ -2,6 +2,7 @@ import { CategorySelector } from '@/components/CategorySelector';
 import { Screen } from '@/components/Screen';
 import { useGame } from '@/context/GameContext';
 import { categories } from '@/data/categories';
+import * as Haptics from 'expo-haptics';
 import { useRouter } from 'expo-router';
 import { Pressable, ScrollView, Text } from 'react-native';
 
@@ -44,7 +45,10 @@ export default function CategoriesScreen() {
 
         {/* DONE BUTTON */}
         <Pressable
-          onPress={() => router.back()}
+          onPress={() => {
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+            router.back();
+          }}
           style={{
             marginTop: 16,
             paddingVertical: 14,

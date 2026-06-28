@@ -1,3 +1,4 @@
+import * as Haptics from 'expo-haptics';
 import { Player } from '@/types/game';
 import { Pressable, Text, View } from 'react-native';
 
@@ -53,7 +54,10 @@ export function PlayerList({ players, onRemove }: Props) {
 
           {/* Remove */}
           <Pressable
-            onPress={() => onRemove(player.id)}
+            onPress={() => {
+              Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+              onRemove(player.id);
+            }}
             hitSlop={10}
             accessibilityRole="button"
             accessibilityLabel={`Remove ${player.name}`}

@@ -6,6 +6,7 @@ import { Screen } from '@/components/Screen';
 import { Title } from '@/components/Typography';
 import { useGame } from '@/context/GameContext';
 import { categories } from '@/data/categories';
+import * as Haptics from 'expo-haptics';
 import { useRouter } from 'expo-router';
 import { Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { maxImposters } from '@/utils/gameLogic';
@@ -64,7 +65,10 @@ export default function HomeScreen() {
                 />
 
                 <Pressable
-                  onPress={() => setAllowHints(h => !h)}
+                  onPress={() => {
+                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                    setAllowHints(h => !h);
+                  }}
                   style={{
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -105,7 +109,10 @@ export default function HomeScreen() {
                   </Text>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
                     <Pressable
-                      onPress={() => setImposterCount(c => Math.max(1, c - 1))}
+                      onPress={() => {
+                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                        setImposterCount(c => Math.max(1, c - 1));
+                      }}
                       disabled={effectiveCount <= 1}
                       style={{
                         width: 32,
@@ -122,7 +129,10 @@ export default function HomeScreen() {
                       {effectiveCount}
                     </Text>
                     <Pressable
-                      onPress={() => setImposterCount(c => Math.min(maxCount, c + 1))}
+                      onPress={() => {
+                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                        setImposterCount(c => Math.min(maxCount, c + 1));
+                      }}
                       disabled={effectiveCount >= maxCount}
                       style={{
                         width: 32,
@@ -141,7 +151,8 @@ export default function HomeScreen() {
                 <PrimaryButton
                   title="Start Game"
                   disabled={!canStart}
-                  onPress={() =>
+                  onPress={() => {
+                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
                     router.push({
                       pathname: '/reveal',
                       params: {
@@ -150,8 +161,8 @@ export default function HomeScreen() {
                         allowHints: JSON.stringify(allowHints),
                         imposterCount: JSON.stringify(effectiveCount),
                       },
-                    })
-                  }
+                    });
+                  }}
                 />
               </Screen>
         </ScrollView>

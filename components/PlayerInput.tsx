@@ -1,4 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
+import * as Haptics from 'expo-haptics';
 import { useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 
@@ -17,6 +18,7 @@ export function PlayerInput({
 
   const handleAdd = () => {
     if (!name.trim() || playerCount >= maxPlayers) return;
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     onAdd(name.trim());
     setName('');
   };
