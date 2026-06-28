@@ -4,21 +4,20 @@ export const scienceAndTech: Category = {
   id: 'science_and_tech',
   name: 'Science and Tech',
   words: [
-  { word: 'Computer', hint: 'Binary' },          // symbolic of function  
-  { word: 'Robot', hint: 'Servo' },             // mechanical part hint  
-  { word: 'Internet', hint: 'Packet' },         // data-focused hint  
-  { word: 'Algorithm', hint: 'Flow' },          // abstract process hint  
-  { word: 'Physics', hint: 'Force' },           // fundamental concept hint  
-  { word: 'Chemistry', hint: 'Bond' },          // subtle science concept  
-  { word: 'Biology', hint: 'Cell' },            // unit of life hint  
-  { word: 'AI', hint: 'Neural' },               // neural network reference  
-  { word: 'Space', hint: 'Vacuum' },            // scientific concept hint  
-  { word: 'Experiment', hint: 'Trial' },        // process clue  
-  { word: 'Electricity', hint: 'Current' },     // subtle physical hint  
-  { word: 'Microscope', hint: 'Lens' },         // tool hint  
-  { word: 'Quantum', hint: 'Particle' },        // tricky concept hint  
-  { word: 'Satellite', hint: 'Orbit' },         // function/location hint  
-  { word: 'Drone', hint: 'Propeller' },         // subtle tool/action hint  
-],
-
+    { word: 'Computer', hint: 'Binary' },
+    { word: 'Robot', hint: 'Servo' },
+    { word: 'Internet', hint: 'Packet' },
+    { word: 'Algorithm', hint: 'Flow' },
+    { word: 'Physics', hint: 'Force' },
+    { word: 'Chemistry', hint: 'Bond' },
+    { word: 'Biology', hint: 'Cell' },
+    { word: 'AI', hint: 'Neural' },
+    { word: 'Space', hint: 'Cosmos' },
+    { word: 'Experiment', hint: 'Trial' },
+    { word: 'Electricity', hint: 'Current' },
+    { word: 'Microscope', hint: 'Slide' },
+    { word: 'Quantum', hint: 'Particle' },
+    { word: 'Satellite', hint: 'Orbit' },
+    { word: 'Drone', hint: 'Propeller' },
+  ],
 };

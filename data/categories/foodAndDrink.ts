@@ -4,7 +4,6 @@ export const foodAndDrink: Category = {
   id: 'food_and_drink',
   name: 'Food and Drink',
   words: [
-    { word: 'Tropicana', hint: 'sunrise' },
     { word: 'Monster', hint: 'Claw' },
     { word: 'Ketchup', hint: 'Squeeze' },
     { word: 'Doritos', hint: 'Triangle' },
@@ -12,7 +11,5 @@ export const foodAndDrink: Category = {
     { word: 'Goujons', hint: 'Strips' },
     { word: 'Mayo', hint: 'White' },
     { word: 'Toast', hint: 'Morning' },
-
-    
   ],
 };

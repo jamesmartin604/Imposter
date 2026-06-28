@@ -2,23 +2,34 @@ import { Category } from '@/types/game';
 
 export const sports: Category = {
   id: 'sports',
-  name: 'Sports',
+  name: 'Sports & Hobbies',
   words: [
-  { word: 'Soccer', hint: 'Goal' },            // action-based hint  
-  { word: 'Basketball', hint: 'Hoop' },       // iconic object  
-  { word: 'Tennis', hint: 'Racket' },         // equipment hint  
-  { word: 'Golf', hint: 'Putter' },           // equipment/action hint  
-  { word: 'Swimming', hint: 'Lane' },         // environment clue  
-  { word: 'Running', hint: 'Track' },         // place/action hint  
-  { word: 'Boxing', hint: 'Glove' },          // equipment hint  
-  { word: 'Cycling', hint: 'Pedal' },         // action hint  
-  { word: 'Skiing', hint: 'Slope' },          // location/action hint  
-  { word: 'Baseball', hint: 'Diamond' },      // field shape hint  
-  { word: 'Volleyball', hint: 'Net' },        // equipment/environment hint  
-  { word: 'Surfing', hint: 'Wave' },          // environment/action hint  
-  { word: 'Cricket', hint: 'Stump' },         // equipment hint  
-  { word: 'Gymnastics', hint: 'Balance' },    // action/concept hint  
-  { word: 'Archery', hint: 'Target' },        // objective hint  
-],
-
+    { word: 'Soccer', hint: 'Nil' },
+    { word: 'Basketball', hint: 'Buzzer' },
+    { word: 'Tennis', hint: 'Volley' },
+    { word: 'Golf', hint: 'Putter' },
+    { word: 'Swimming', hint: 'Lane' },
+    { word: 'Running', hint: 'Track' },
+    { word: 'Boxing', hint: 'Clinch' },
+    { word: 'Cycling', hint: 'Pedal' },
+    { word: 'Skiing', hint: 'Slope' },
+    { word: 'Baseball', hint: 'Diamond' },
+    { word: 'Volleyball', hint: 'Net' },
+    { word: 'Surfing', hint: 'Barrel' },
+    { word: 'Cricket', hint: 'Stump' },
+    { word: 'Gymnastics', hint: 'Balance' },
+    { word: 'Archery', hint: 'Target' },
+    { word: 'Painting', hint: 'Canvas' },
+    { word: 'Cooking', hint: 'Spice' },
+    { word: 'Reading', hint: 'Pages' },
+    { word: 'Dancing', hint: 'Rhythm' },
+    { word: 'Gardening', hint: 'Dig' },
+    { word: 'Photography', hint: 'Shutter' },
+    { word: 'Writing', hint: 'Ink' },
+    { word: 'Fishing', hint: 'Line' },
+    { word: 'Hiking', hint: 'Trail' },
+    { word: 'Knitting', hint: 'Purl' },
+    { word: 'Yoga', hint: 'Pose' },
+    { word: 'Singing', hint: 'Vocal' },
+  ],
 };

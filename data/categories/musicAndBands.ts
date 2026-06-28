@@ -2,23 +2,28 @@ import { Category } from '@/types/game';
 
 export const musicAndBands: Category = {
   id: 'music_and_bands',
-  name: 'Music and Bands',
+  name: 'Music & Pop Culture',
   words: [
-  { word: 'The Beatles', hint: 'Abbey' },           // studio hint  
-  { word: 'Queen', hint: 'Crown' },               // subtle royal reference  
-  { word: 'Beyoncé', hint: 'Formation' },         // iconic song hint  
-  { word: 'Coldplay', hint: 'Yellow' },           // famous song hint  
-  { word: 'Michael Jackson', hint: 'Glove' },     // signature accessory  
-  { word: 'Adele', hint: 'Hello' },               // song reference  
-  { word: 'Taylor Swift', hint: 'Eras' },         // album hint  
-  { word: 'Linkin Park', hint: 'Hybrid' },        // album reference  
-  { word: 'Drake', hint: 'OVO' },                 // label hint  
-  { word: 'Kanye West', hint: 'Wave' },           // album reference  
-  { word: 'Eminem', hint: 'Slim' },               // nickname hint  
-  { word: 'Pink Floyd', hint: 'Prism' },          // album hint  
-  { word: 'Nirvana', hint: 'Smiley' },            // logo hint  
-  { word: 'Imagine Dragons', hint: 'Believer' },  // song hint  
-  { word: 'Ed Sheeran', hint: 'Ginger' },         // physical/visual clue  
-],
-
+    { word: 'The Beatles', hint: 'Abbey' },
+    { word: 'Queen', hint: 'Crown' },
+    { word: 'Beyoncé', hint: 'Formation' },
+    { word: 'Coldplay', hint: 'Yellow' },
+    { word: 'Michael Jackson', hint: 'Glove' },
+    { word: 'Adele', hint: 'Hello' },
+    { word: 'Taylor Swift', hint: 'Eras' },
+    { word: 'Linkin Park', hint: 'Hybrid' },
+    { word: 'Drake', hint: 'OVO' },
+    { word: 'Kanye West', hint: 'Wave' },
+    { word: 'Eminem', hint: 'Slim' },
+    { word: 'Pink Floyd', hint: 'Prism' },
+    { word: 'Nirvana', hint: 'Smiley' },
+    { word: 'Imagine Dragons', hint: 'Believer' },
+    { word: 'Ed Sheeran', hint: 'Ginger' },
+    { word: 'Leonardo DiCaprio', hint: 'Iceberg' },
+    { word: 'Elon Musk', hint: 'Rockets' },
+    { word: 'Rihanna', hint: 'Umbrella' },
+    { word: 'Prince', hint: 'Purple' },
+    { word: 'Mariah Carey', hint: 'December' },
+    { word: 'Elvis Presley', hint: 'King' },
+  ],
 };

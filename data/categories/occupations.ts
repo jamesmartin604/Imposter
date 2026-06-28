@@ -2,23 +2,35 @@ import { Category } from '@/types/game';
 
 export const occupations: Category = {
   id: 'occupations',
-  name: 'Occupations',
+  name: 'Work & School',
   words: [
-  { word: 'Doctor', hint: 'Stethoscope' },        // tool hint  
-  { word: 'Teacher', hint: 'Chalk' },            // classroom reference  
-  { word: 'Pilot', hint: 'Cockpit' },            // location/tool hint  
-  { word: 'Chef', hint: 'Apron' },               // uniform hint  
-  { word: 'Artist', hint: 'Easel' },             // work tool hint  
-  { word: 'Musician', hint: 'Strings' },         // instrument-related  
-  { word: 'Writer', hint: 'Quill' },             // symbolic of writing  
-  { word: 'Engineer', hint: 'Blueprint' },       // planning tool hint  
-  { word: 'Actor', hint: 'Stage' },              // environment hint  
-  { word: 'Scientist', hint: 'Lab' },            // workplace hint  
-  { word: 'Photographer', hint: 'Lens' },        // tool hint  
-  { word: 'Dancer', hint: 'Tutu' },              // subtle performance clue  
-  { word: 'Firefighter', hint: 'Hose' },         // action/tool clue  
-  { word: 'Police Officer', hint: 'Badge' },     // symbol clue  
-  { word: 'Farmer', hint: 'Plow' },             // work tool / environment hint  
-],
-
+    { word: 'Doctor', hint: 'Rounds' },
+    { word: 'Teacher', hint: 'Chalk' },
+    { word: 'Pilot', hint: 'Contrail' },
+    { word: 'Chef', hint: 'Apron' },
+    { word: 'Artist', hint: 'Easel' },
+    { word: 'Musician', hint: 'Strings' },
+    { word: 'Writer', hint: 'Quill' },
+    { word: 'Engineer', hint: 'Blueprint' },
+    { word: 'Actor', hint: 'Stage' },
+    { word: 'Scientist', hint: 'Lab' },
+    { word: 'Photographer', hint: 'Lens' },
+    { word: 'Dancer', hint: 'Tutu' },
+    { word: 'Firefighter', hint: 'Hose' },
+    { word: 'Police Officer', hint: 'Badge' },
+    { word: 'Farmer', hint: 'Plow' },
+    { word: 'Student', hint: 'Desk' },
+    { word: 'Exam', hint: 'Paper' },
+    { word: 'Library', hint: 'Silence' },
+    { word: 'Homework', hint: 'Late' },
+    { word: 'Graduation', hint: 'Cap' },
+    { word: 'Lecture', hint: 'Notes' },
+    { word: 'Principal', hint: 'Office' },
+    { word: 'Recess', hint: 'Bell' },
+    { word: 'Notebook', hint: 'Pages' },
+    { word: 'Blackboard', hint: 'Scribble' },
+    { word: 'Quiz', hint: 'Answer' },
+    { word: 'Backpack', hint: 'Straps' },
+    { word: 'Cafeteria', hint: 'Tray' },
+  ],
 };

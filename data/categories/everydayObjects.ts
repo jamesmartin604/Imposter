@@ -2,17 +2,30 @@ import { Category } from '@/types/game';
 
 export const everydayObjects: Category = {
   id: 'everyday_objects',
-  name: 'Everyday Objects',
+  name: 'Objects & Tools',
   words: [
     { word: 'Blender', hint: 'Tornado' },
-    { word: 'Mat', hint: 'Yoga' },
+    { word: 'Mat', hint: 'Welcome' },
     { word: 'Plant', hint: 'Oxygen' },
     { word: 'Comb', hint: 'Teeth' },
     { word: 'Window', hint: 'Frame' },
     { word: 'Plate', hint: 'Tectonic' },
-    { word: 'Rod', hint: 'Fishing' },
+    { word: 'Rod', hint: 'Cast' },
     { word: 'Button', hint: 'Push' },
-    
-
+    { word: 'Oven', hint: 'Heat' },
+    { word: 'Knife', hint: 'Edge' },
+    { word: 'Pan', hint: 'Sizzle' },
+    { word: 'Whisk', hint: 'Aerate' },
+    { word: 'Spatula', hint: 'Flip' },
+    { word: 'Mixer', hint: 'Blend' },
+    { word: 'Pot', hint: 'Simmer' },
+    { word: 'Peeler', hint: 'Strip' },
+    { word: 'Grater', hint: 'Shred' },
+    { word: 'Colander', hint: 'Drain' },
+    { word: 'Cutting Board', hint: 'Surface' },
+    { word: 'Ladle', hint: 'Scoop' },
+    { word: 'Tongs', hint: 'Grip' },
+    { word: 'Rolling Pin', hint: 'Flatten' },
+    { word: 'Measuring Cup', hint: 'Scale' },
   ],
 };
