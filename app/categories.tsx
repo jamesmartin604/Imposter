@@ -4,7 +4,8 @@ import { useGame } from '@/context/GameContext';
 import { categories } from '@/data/categories';
 import * as Haptics from 'expo-haptics';
 import { useRouter } from 'expo-router';
-import { Pressable, ScrollView, Text } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 
 export default function CategoriesScreen() {
   const router = useRouter();
@@ -16,19 +17,38 @@ export default function CategoriesScreen() {
         contentContainerStyle={{ paddingBottom: 24 }}
         style={{ backgroundColor: 'transparent' }}
       >
-        {/* Title */}
-        <Text
-          style={{
-            fontSize: 28,
-            fontWeight: '700',
-            marginBottom: 16,
-            textAlign: 'center',
-            fontFamily: 'Fontzilla',
-            color: '#FFFFFF',
-          }}
-        >
-          Choose Categories
-        </Text>
+        {/* Header */}
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 16 }}>
+          <Pressable
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.back();
+            }}
+            hitSlop={10}
+            style={{
+              padding: 4,
+              borderWidth: 1,
+              borderColor: '#7B899D',
+              borderRadius: 8,
+              backgroundColor: '#252e3d',
+            }}
+          >
+            <Ionicons name="chevron-back" size={28} color="#19E5D4" />
+          </Pressable>
+          <Text
+            style={{
+              flex: 1,
+              fontSize: 28,
+              fontWeight: '700',
+              textAlign: 'center',
+              fontFamily: 'Fontzilla',
+              color: '#FFFFFF',
+              marginRight: 36,
+            }}
+          >
+            Choose Categories
+          </Text>
+        </View>
 
         {/* Category grid */}
         <CategorySelector
